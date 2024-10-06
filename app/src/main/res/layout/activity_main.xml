@@ -9,9 +9,10 @@
     android:background="@color/background_color"
     >
 
+    <!-- Estilo específico Marca do app -->
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logoMarca"
         android:layout_width="174dp"
         android:layout_height="197dp"
         android:scaleType="centerCrop"
@@ -31,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/logoMarca"
         app:layout_constraintVertical_bias="0.0" />
 
 

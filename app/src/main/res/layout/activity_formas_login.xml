@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".activity_formasLogin">
+
+    <ImageView
+        android:id="@+id/logoMarca"
+        android:layout_width="260dp"
+        android:layout_height="312dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252"
+        app:srcCompat="@drawable/img" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/CustomTextViewStyle"
+        android:text="Como deseja acessar?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/entrarGoogle"
+        style="@style/botaoAmerelo"
+        android:layout_width="374dp"
+        android:layout_height="50dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="108dp"
+        android:text="Entrar com Google"
+        android:textColor="@color/background_color"
+        android:textSize="16sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.239" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/outraOpcao"
+        style="@style/botaoCinza"
+
+        android:layout_width="374dp"
+        android:layout_height="50dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:layout_marginBottom="28dp"
+        android:text="Outras opções"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrarGoogle"
+        app:layout_constraintVertical_bias="0.256" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="106dp"
+        android:layout_height="31dp"
+        android:text="Ótimo dia!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoMarca"
+        app:layout_constraintVertical_bias="0.109" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent intent = new Intent(MainActivity.this, activity_formasLogin.class);
+            Intent intent = new Intent(MainActivity.this, dadosCadastrais.class);
             startActivity(intent);
             finish(); // Finaliza a MainActivity para que o usuário não volte a ela
         }, 3000); // 3000 milissegundos = 3 segundos

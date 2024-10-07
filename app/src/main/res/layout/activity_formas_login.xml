@@ -34,7 +34,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/entrarGoogle"
         style="@style/botaoAmerelo"
-        android:layout_width="374dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
 
         android:layout_marginStart="32dp"
@@ -55,7 +55,7 @@
         android:id="@+id/outraOpcao"
         style="@style/botaoCinza"
 
-        android:layout_width="374dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
 
         android:layout_marginStart="32dp"

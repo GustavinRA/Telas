@@ -5,7 +5,4 @@
 
     <color name="background_color">#282222</color>
 
-    <color name="colorChecked">#A9A9A9</color> <!-- Cinza para o botão quando marcado -->
-    <color name="colorUnchecked">#D3D3D3</color> <!-- Cinza claro para o botão quando não marcado -->
-
 </resources>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Estado marcado (checked) -->
-    <item android:state_checked="true" android:drawable="@color/colorChecked" />
-
-    <!-- Estado não marcado (unchecked) -->
-    <item android:drawable="@color/colorUnchecked" />
-</selector>

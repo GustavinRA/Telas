@@ -23,14 +23,14 @@
     <!-- Estilo específico para Caixa de Texto Cinza -->
     <style name="CaixaTextoCinza">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">12dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:ems">10</item>
         <item name="android:background">@drawable/caixa_fundo_cinza</item>
         <item name="android:inputType">text</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">13dp</item>
     </style>
 
     <!-- Estilo genérico para TextView -->
@@ -55,7 +55,7 @@
             <item name="android:textSize">16sp</item> <!-- Defina o tamanho do texto conforme necessário -->
             <item name="android:padding">12dp</item> <!-- Adicione um preenchimento se necessário -->
             <item name="android:fontFamily">@font/open_sans</item> <!-- Defina a fonte se necessário -->
-            <item name="android:background">"@drawable/caixa_fundo_amarelo"</item>
+            <item name="android:background">@drawable/caixa_fundo_amarelo</item>
             <item name="android:textAllCaps">false</item>
         </style>
 
@@ -68,8 +68,18 @@
         <item name="android:textSize">16sp</item> <!-- Defina o tamanho do texto conforme necessário -->
         <item name="android:padding">12dp</item> <!-- Adicione um preenchimento se necessário -->
         <item name="android:fontFamily">@font/open_sans</item> <!-- Defina a fonte se necessário -->
-        <item name="android:background">"@drawable/caixa_fundo_cinza"</item>
+        <item name="android:background">@drawable/caixa_fundo_cinza</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Definindo o estilo reutilizável para ImageButton -->
+    <style name="botaoVoltar">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:src">@drawable/img_3</item> <!-- Aqui você pode definir um ícone padrão se desejar -->
     </style>
 
 

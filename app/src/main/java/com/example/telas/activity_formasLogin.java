@@ -49,6 +49,16 @@ public class activity_formasLogin extends AppCompatActivity {
                 signIn();
             }
         });
+        Button outraOpcao = findViewById(R.id.outraOpcao);
+
+        outraOpcao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
+                startActivity(intent);
+            }
+        });
+
     }
     void signIn(){
         Intent signInIntent = gsc.getSignInIntent();

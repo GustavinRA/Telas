@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Telas</string>
+    <string name ="txtNomeP">Ótima semana, Leandro</string>
+    <string name="titulo_treino_tp">Competitiva: Peito e Tríceps</string>
+    <string name="objetivo_treino_tp">Maior Intensidade nos treinos Competição</string>
+    <string name="showMore_tp">Ver detalhes</string>
 </resources>

@@ -28,7 +28,7 @@ public class activity_tela_principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_principal);
 
-
+// ewe
 
         linechart = findViewById(R.id.lineChart);
 

@@ -7,6 +7,10 @@ android {
     namespace = "com.example.telas"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.example.telas"
         minSdk = 27
@@ -15,6 +19,21 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions += "env"
+
+    productFlavors {
+        create("dev") {
+            dimension = "env"
+            // Definir BASE_URL para ambiente de desenvolvimento (emulador)
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080/\"")
+        }
+        create("prod") {
+            dimension = "env"
+            // Definir BASE_URL para ambiente de produção (substitua pelo URL real)
+            buildConfigField("String", "BASE_URL", "\"https://seu-dominio.com/\"")
+        }
     }
 
     buildTypes {
@@ -45,4 +64,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.gms:play-services-auth:20.4.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 }

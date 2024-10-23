@@ -9,9 +9,14 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.telas.dao.DAO;
-import com.example.telas.model.Usuario;
-import com.example.telas.util.Util;
+import com.example.telas.api.ApiClient;
+import com.example.telas.api.AuthService;
+import com.example.telas.model.LoginRequest;
+import com.example.telas.model.LoginResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class activity_login extends AppCompatActivity {
 
@@ -19,6 +24,8 @@ public class activity_login extends AppCompatActivity {
     private EditText senhaEditText;
     private Button acessarButton;
     private Button cadastrarButton_login;
+
+    private SharedPreferencesManager sharedPreferencesManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,8 @@ public class activity_login extends AppCompatActivity {
         senhaEditText = findViewById(R.id.senha);
         acessarButton = findViewById(R.id.acessar);
         cadastrarButton_login = findViewById(R.id.cadastrar);
+
+        sharedPreferencesManager = new SharedPreferencesManager(this);
 
         acessarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,27 +51,7 @@ public class activity_login extends AppCompatActivity {
                     return;
                 }
 
-                try {
-                    String senhaMD5 = Util.converteMD5(senha);
-
-                    Usuario usuario = new Usuario();
-                    usuario.setEmail(email);
-                    usuario.setSenha(senhaMD5);
-
-                    DAO dao = new DAO(activity_login.this);
-                    String resultado = dao.autenticaUsuario(usuario);
-
-                    Toast.makeText(activity_login.this, resultado, Toast.LENGTH_SHORT).show();
-
-                    if(resultado.equals("login efetuado com sucesso.")){
-                        Intent intent = new Intent(activity_login.this, dadosCadastrais.class);
-                        startActivity(intent);
-                        finish();
-                    }
-
-                } catch (Exception e) {
-                    Toast.makeText(activity_login.this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+                realizarLogin(email, senha);
             }
         });
 
@@ -70,10 +59,42 @@ public class activity_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Navegar para activity_cadastro
                 Intent intent = new Intent(activity_login.this, activity_cadastro.class);
                 startActivity(intent);
+            }
+        });
+    }
 
+    private void realizarLogin(String email, String senha){
+
+        AuthService authService = ApiClient.getClient().create(AuthService.class);
+
+        LoginRequest loginRequest = new LoginRequest(email, senha);
+
+        Call<LoginResponse> call = authService.loginUser(loginRequest);
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()){
+                    LoginResponse loginResponse = response.body();
+                    if(loginResponse != null && loginResponse.getToken() != null){
+                        sharedPreferencesManager.saveAuthToken(loginResponse.getToken());
+
+                        Toast.makeText(activity_login.this, "Login efetuado com sucesso.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(activity_login.this, dadosCadastrais.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(activity_login.this, "Erro ao obter token.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(activity_login.this, "Credenciais inválidas.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(activity_login.this, "Erro de rede: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

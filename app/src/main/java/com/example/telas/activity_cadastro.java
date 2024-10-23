@@ -4,14 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.telas.dao.DAO;
-import com.example.telas.model.Usuario;
-import com.example.telas.util.Util;
+import com.example.telas.api.AuthManager;
+import com.example.telas.api.AuthService;
+import com.example.telas.api.ApiClient;
+import com.example.telas.model.RegisterRequest;
+import com.example.telas.model.MessageResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class activity_cadastro extends AppCompatActivity {
 
@@ -26,7 +32,6 @@ public class activity_cadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        // Inicialização dos campos com os IDs corretos
         editTextEmail = findViewById(R.id.email);
         repetirEmailEditText = findViewById(R.id.repetirEmail);
         editTextSenha = findViewById(R.id.senha);
@@ -57,30 +62,46 @@ public class activity_cadastro extends AppCompatActivity {
                     return;
                 }
 
-                try {
-                    String senhaMD5 = Util.converteMD5(senha);
-
-                    Usuario usuario = new Usuario();
-                    usuario.setEmail(email);
-                    usuario.setSenha(senhaMD5);
-
-                    DAO dao = new DAO(activity_cadastro.this);
-                    String resultado = dao.insereUsuario(usuario);
-
-                    if (resultado.equals("Sucesso ao cadastrar o usuário")) {
-                        Toast.makeText(activity_cadastro.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(activity_cadastro.this, activity_login.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(activity_cadastro.this, resultado, Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (Exception e) {
-                    Toast.makeText(activity_cadastro.this, "Erro ao cadastrar usuário", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
+                realizarCadastro(email, senha);
             }
         });
+    }
+
+    private void realizarCadastro(String email, String senha){
+
+        AuthService authService = ApiClient.getClient().create(AuthService.class);
+
+        RegisterRequest registerRequest = new RegisterRequest(email, email, senha);
+
+        Call<MessageResponse> call = authService.registerUser(registerRequest);
+        call.enqueue(new Callback<MessageResponse>() {
+            @Override
+            public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
+                if(response.isSuccessful()){
+                    MessageResponse messageResponse = response.body();
+                    if(messageResponse != null){
+                        Toast.makeText(activity_cadastro.this, messageResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        if(messageResponse.getMessage().equals("Usuário registrado com sucesso!")){
+
+                            realizarLoginAutomatico(email, senha);
+                        }
+                    }
+                } else {
+                    Toast.makeText(activity_cadastro.this, "Erro no cadastro. Verifique os dados.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MessageResponse> call, Throwable t) {
+                Toast.makeText(activity_cadastro.this, "Erro de rede: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void realizarLoginAutomatico(String email, String senha){
+
+        AuthManager authManager = new AuthManager(activity_cadastro.this);
+
+        authManager.realizarLogin(email, senha, null);
     }
 }

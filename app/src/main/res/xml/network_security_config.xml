@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Permitir cleartext traffic para 10.0.2.2 (emulador) -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+    <!-- Permitir cleartext traffic para outros IPs específicos (por exemplo, para dispositivos físicos) -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.1.100</domain> <!-- Substitua pelo IP da sua máquina host -->
+    </domain-config>
+</network-security-config>

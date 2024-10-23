@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".activity_tela_principal">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edthud_bg">
+
+                <ImageView
+                    android:id="@+id/icon_app_tp"
+                    android:layout_width="50dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img" />
+
+                <ImageView
+                    android:id="@+id/icon_edit_tp"
+                    android:layout_width="41dp"
+                    android:layout_height="33dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/baseline_add_circle_outline_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/bell"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/bell"
+                    android:layout_width="38dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="64dp"
+                    android:src="@drawable/bell"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.666" />
+
+                <ImageView
+                    android:id="@+id/icon_user_tp"
+                    android:layout_width="50dp"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="6dp"
+                android:text="@string/txtNomeP"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_marginBottom="20dp"
+                android:outlineSpotShadowColor="@color/white"
+                android:outlineAmbientShadowColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/treino_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/background_color"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/editbottomhud_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/home_tp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="29dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/home" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/test2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="29dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        app:srcCompat="@drawable/search" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/test3"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="125dp"
+                        android:layout_gravity="center"
+                        android:layout_height="27dp"
+                        app:srcCompat="@drawable/pin" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

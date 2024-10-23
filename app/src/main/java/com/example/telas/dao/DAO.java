@@ -1,16 +1,14 @@
-package com.example.telas.DAO;
+package com.example.telas.dao;
 
 import android.database.sqlite.SQLiteOpenHelper;
-
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+import android.database.Cursor;
+import android.content.ContentValues;
+import android.content.Context;
 
-import com.example.telas.OBJETOS.Usuario;
+import com.example.telas.model.Usuario;
+
 public class DAO extends SQLiteOpenHelper {
 
     public DAO(Context context) {
@@ -20,7 +18,7 @@ public class DAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql_usuarios = "CREATE TABLE usuarios (id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nome_usuario TEXT UNIQUE NOT NULL," +
+                "email_usuario TEXT UNIQUE NOT NULL," +
                 "senha_usuario TEXT NOT NULL);";
         db.execSQL(sql_usuarios);
     }
@@ -31,42 +29,37 @@ public class DAO extends SQLiteOpenHelper {
         db.execSQL(sql_upgrade_usuarios);
         onCreate(db);
     }
-    private void autenticaUsuario(String nome, String senha){
 
-    }
     public String insereUsuario(Usuario usuario){
         SQLiteDatabase db = getWritableDatabase();
         try{
             ContentValues dados_usuario = new ContentValues();
-            dados_usuario.put("nome_usuario", usuario.getNome());
+            dados_usuario.put("email_usuario", usuario.getEmail());
             dados_usuario.put("senha_usuario", usuario.getSenha());
             db.insertOrThrow("usuarios", null, dados_usuario);
-            db.close();
         } catch (SQLiteConstraintException erro) {
-            return "Erro ao cadastrar o usuário";
+            // Usuário já existe, podemos considerar isso como sucesso
+            return "Usuário já existente";
+        } catch (Exception e) {
+            return "Erro ao cadastrar o usuário: " + e.getMessage();
+        } finally {
+            db.close();
         }
-
         return "Sucesso ao cadastrar o usuário";
     }
 
-
-    @SuppressLint("Range")
     public String autenticaUsuario(Usuario usuario){
         SQLiteDatabase db = getReadableDatabase();
-        String sqli_busca_usuarios = "SELECT * FROM usuarios WHERE nome_usuario = " + "'" + usuario.getNome() + "'";
-        Cursor c = db.rawQuery(sqli_busca_usuarios, null);
-        while (c.moveToNext()){
-            Log.d("SenhaNoBanco ", c.getString(c.getColumnIndex("senha_usuario")));
-            Log.d("SenhaDigitada ", usuario.getSenha());
-            if(usuario.getNome().equals(c.getString(c.getColumnIndex("nome_usuario")))){
-                if (usuario.getSenha().equals(c.getString(c.getColumnIndex("senha_usuario")))){
-                    return "login efetuado com sucesso.";
-                }
-            }
+        String sqli_busca_usuarios = "SELECT * FROM usuarios WHERE email_usuario = ? AND senha_usuario = ?";
+        Cursor c = db.rawQuery(sqli_busca_usuarios, new String[]{usuario.getEmail(), usuario.getSenha()});
+        if (c.moveToFirst()){
+            c.close();
+            db.close();
+            return "login efetuado com sucesso.";
+        } else {
+            c.close();
+            db.close();
+            return "login falhou";
         }
-        db.close();
-        c.close();
-        return "login falhou";
     }
-
 }

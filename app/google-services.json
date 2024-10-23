@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "755889974745",
+    "project_id": "periodizacao-53bf3",
+    "storage_bucket": "periodizacao-53bf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755889974745:android:b292fb6af9da00f9793dc8",
+        "android_client_info": {
+          "package_name": "com.example.telas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDE4u5brnHEmCNU9cLHWkLCc1OrJfJLd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,7 +22,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish(); // Finaliza a MainActivity para que o usuário não volte a ela
         }, 3000); // 3000 milissegundos = 3 segundos
-
-        // eu não mais testes aaaaaaaaaaaaaaaaaa
     }
 }

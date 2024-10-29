@@ -55,7 +55,7 @@ public class activity_formasLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
+                Intent intent = new Intent(activity_formasLogin.this, definir_treinos.class);
                 startActivity(intent);
             }
         });

@@ -4,4 +4,18 @@
     <string name="titulo_treino_tp">Competitiva: Peito e Tríceps</string>
     <string name="objetivo_treino_tp">Maior Intensidade nos treinos Competição</string>
     <string name="showMore_tp">Ver detalhes</string>
+
+    <string-array name = "Ciclo">
+        <item>Microciclo</item>
+        <item>Mesociclo</item>
+        <item>Macrociclo</item>
+    </string-array>
+
+
+
+    <string-array name = "Fases">
+        <item>Competitiva</item>
+        <item>Preparatória</item>
+        <item>Transição</item>
+    </string-array>
 </resources>

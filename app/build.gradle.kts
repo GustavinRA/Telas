@@ -10,7 +10,6 @@ android {
     buildFeatures {
         buildConfig = true
     }
-
     defaultConfig {
         applicationId = "com.example.telas"
         minSdk = 27
@@ -22,7 +21,6 @@ android {
     }
 
     flavorDimensions += "env"
-
     productFlavors {
         create("dev") {
             dimension = "env"
@@ -35,7 +33,6 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://seu-dominio.com/\"")
         }
     }
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false

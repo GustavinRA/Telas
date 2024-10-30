@@ -3,16 +3,16 @@
     <item>
         <shape android:shape="rectangle">
             <size
-                android:height="10dp"
-                android:width="10dp"/>
+                    android:height="10dp"
+                    android:width="10dp"/>
 
 
-            <corners android:topLeftRadius="10dp"
-                android:topRightRadius="10dp"
-                />
+                <corners android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp"
+                    />
 
-            <solid android:color="@color/item"/>
-            <!--            <stroke android:color="@color/background_color" android:width="1dp"/>-->
-        </shape>
-    </item>
-</selector>
+                <solid android:color="@color/item"/>
+                <!--            <stroke android:color="@color/background_color" android:width="1dp"/>-->
+            </shape>
+        </item>
+    </selector>

@@ -1,7 +1,10 @@
 package com.example.telas;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -73,7 +76,19 @@ public class activity_tela_principal extends AppCompatActivity {
         treinoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         TreinoAdapter adapter = new TreinoAdapter(treinoList);
         treinoRecyclerView.setAdapter(adapter);
+
+        Button treino = findViewById(R.id.treino);
+
+        treino.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_tela_principal.this, definir_treinos.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
-//    }
+
 
 }

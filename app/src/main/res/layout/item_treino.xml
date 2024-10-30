@@ -6,7 +6,6 @@
     android:padding="16dp"
     android:layout_marginBottom="20dp">
 
-    <!-- TextView para o dia da semana -->
     <TextView
         android:id="@+id/txtViewDia"
         android:layout_width="wrap_content"

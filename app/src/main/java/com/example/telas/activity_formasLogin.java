@@ -55,10 +55,27 @@ public class activity_formasLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(activity_formasLogin.this, definir_treinos.class);
+                Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
                 startActivity(intent);
             }
         });
+
+
+        Button login = findViewById(R.id.login);
+
+        login.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(activity_formasLogin.this, activity_login.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if(account != null){

@@ -1,5 +1,7 @@
 package com.example.telas.api;
 
+import com.example.telas.model.GoogleLoginRequest;
+import com.example.telas.model.JwtResponse;
 import com.example.telas.model.LoginRequest;
 import com.example.telas.model.LoginResponse;
 import com.example.telas.model.RegisterRequest;
@@ -16,4 +18,7 @@ public interface AuthService {
 
     @POST("api/auth/login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
+
+    @POST("api/auth/google")
+    Call<JwtResponse> authenticateGoogleUser(@Body GoogleLoginRequest googleLoginRequest);
 }

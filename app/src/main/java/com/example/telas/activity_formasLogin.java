@@ -2,30 +2,33 @@ package com.example.telas;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.IntentSenderRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.telas.dao.DAO;
-import com.example.telas.model.Usuario;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
+import com.example.telas.api.AuthManager;
+import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.identity.Identity;
+import com.google.android.gms.auth.api.identity.SignInClient;
+import com.google.android.gms.auth.api.identity.SignInCredential;
 
 public class activity_formasLogin extends AppCompatActivity {
 
-    GoogleSignInOptions gso;
-    GoogleSignInClient gsc;
-    Button google_btn;
+    private SignInClient oneTapClient;
+    private BeginSignInRequest signInRequest;
+    private ActivityResultLauncher<IntentSenderRequest> signInLauncher;
+    private AuthManager authManager;
+    private Button google_btn;
+    private Button outraOpcao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,84 +40,86 @@ public class activity_formasLogin extends AppCompatActivity {
             return insets;
         });
 
+        authManager = new AuthManager(this); // Inicializar AuthManager
+
         google_btn = findViewById(R.id.entrarGoogle);
+        outraOpcao = findViewById(R.id.outraOpcao);
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this,gso);
+        // Configurar o SignInClient
+        oneTapClient = Identity.getSignInClient(this);
 
-        google_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Configurar o BeginSignInRequest
+        signInRequest = BeginSignInRequest.builder()
+                .setGoogleIdTokenRequestOptions(
+                        BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+                                .setSupported(true)
+                                .setServerClientId(getString(R.string.default_web_client_id))
+                                .setFilterByAuthorizedAccounts(false)
+                                .build())
+                .setAutoSelectEnabled(true)
+                .build();
 
-                signIn();
-            }
-        });
-        Button outraOpcao = findViewById(R.id.outraOpcao);
+        // Registrar o ActivityResultLauncher para One Tap Sign-In
+        signInLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartIntentSenderForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        try {
+                            // Obter o SignInCredential da intenção
+                            SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(result.getData());
+                            String idToken = credential.getGoogleIdToken();
+                            String email = credential.getId(); // O email do usuário
 
-        outraOpcao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
-                startActivity(intent);
-            }
-        });
-
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null){
-            // O usuário já está logado, vá para a próxima atividade
-            nextActivity();
-        }
-
-    }
-    void signIn(){
-        Intent signInIntent = gsc.getSignInIntent();
-        startActivityForResult(signInIntent,1000);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                if (account != null) {
-                    // Obter informações do usuário
-                    String email = account.getEmail();
-
-                    // Criar um objeto Usuario
-                    Usuario usuario = new Usuario();
-                    usuario.setEmail(email);
-
-                    // Definir uma senha padrão para o cadastro via Google
-                    String senhaPadrao = "google_login"; // Pode ser qualquer valor fixo ou algo gerado dinamicamente
-                    usuario.setSenha(senhaPadrao);
-
-                    // Inserir o usuário no banco de dados
-                    DAO dao = new DAO(this);
-                    String resultado = dao.insereUsuario(usuario);
-
-                    if (resultado.equals("Sucesso ao cadastrar o usuário") || resultado.equals("Usuário já existente")) {
-                        // Usuário cadastrado com sucesso ou já existente
-                        nextActivity();
+                            if (idToken != null) {
+                                // Enviar o idToken para o backend via AuthManager
+                                authManager.realizarLoginGoogle(idToken, this::nextActivity);
+                            } else {
+                                Toast.makeText(this, "Falha ao obter o token do Google.", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                        }
                     } else {
-                        Toast.makeText(this, resultado, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Falha no login com Google.", Toast.LENGTH_SHORT).show();
                     }
                 }
-            } catch (ApiException e) {
-                Toast.makeText(this, "Erro de API: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            } catch (Exception e) {
-                Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
+        );
+
+        // Configurar o botão de login com Google
+        google_btn.setOnClickListener(v -> signIn());
+
+        // Configurar o botão de outra opção (registro)
+        outraOpcao.setOnClickListener(v -> {
+            Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
+            startActivity(intent);
+        });
+
+        // Verificar se o usuário já está logado
+        if (authManager.isUserLoggedIn()) {
+            nextActivity();
         }
     }
 
-    void nextActivity(){
+    private void signIn() {
+        oneTapClient.beginSignIn(signInRequest)
+                .addOnSuccessListener(this, result -> {
+                    try {
+                        IntentSenderRequest request = new IntentSenderRequest.Builder(result.getPendingIntent().getIntentSender()).build();
+                        signInLauncher.launch(request);
+                    } catch (Exception e) {
+                        Toast.makeText(this, "Erro ao iniciar o login: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                })
+                .addOnFailureListener(this, e -> {
+                    Toast.makeText(this, "Falha ao iniciar o login: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void nextActivity(){
         finish();
-        Intent intent = new Intent(activity_formasLogin.this, activity_login.class);
+        Intent intent = new Intent(activity_formasLogin.this, activity_tela_principal.class); // Ajuste para a atividade correta
         startActivity(intent);
     }
 }

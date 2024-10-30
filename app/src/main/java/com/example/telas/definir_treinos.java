@@ -1,11 +1,13 @@
 package com.example.telas;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,6 +70,18 @@ public class definir_treinos extends AppCompatActivity {
 
             }
         });
+
+       //botao temporario da tela treino para exercicio
+        Button definir = findViewById(R.id.definir);
+        definir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(definir_treinos.this, activity_exercicios.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
     }

@@ -74,9 +74,6 @@ public class activity_formasLogin extends AppCompatActivity {
         });
 
 
-
-
-
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if(account != null){
             // O usuário já está logado, vá para a próxima atividade

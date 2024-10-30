@@ -63,6 +63,17 @@
                 android:id="@+id/treino_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/treino"
+                style="@style/botaoCinza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="Definir treinos" />
+
+
         </LinearLayout>
     </ScrollView>
 

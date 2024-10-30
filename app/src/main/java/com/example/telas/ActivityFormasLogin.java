@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,7 +20,7 @@ import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
 
-public class activity_formasLogin extends AppCompatActivity {
+public class ActivityFormasLogin extends AppCompatActivity {
 
     private SignInClient oneTapClient;
     private BeginSignInRequest signInRequest;
@@ -28,6 +28,7 @@ public class activity_formasLogin extends AppCompatActivity {
     private AuthManager authManager;
     private Button google_btn;
     private Button outraOpcao;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class activity_formasLogin extends AppCompatActivity {
 
         google_btn = findViewById(R.id.entrarGoogle);
         outraOpcao = findViewById(R.id.outraOpcao);
+        loginButton = findViewById(R.id.login); // Associar o botão "Login"
 
         // Configurar o SignInClient
         oneTapClient = Identity.getSignInClient(this);
@@ -72,7 +74,7 @@ public class activity_formasLogin extends AppCompatActivity {
 
                             if (idToken != null) {
                                 // Enviar o idToken para o backend via AuthManager
-                                authManager.realizarLoginGoogle(idToken, this::nextActivity);
+                                authManager.realizarLoginGoogle(idToken);
                             } else {
                                 Toast.makeText(this, "Falha ao obter o token do Google.", Toast.LENGTH_SHORT).show();
                             }
@@ -91,13 +93,19 @@ public class activity_formasLogin extends AppCompatActivity {
 
         // Configurar o botão de outra opção (registro)
         outraOpcao.setOnClickListener(v -> {
-            Intent intent = new Intent(activity_formasLogin.this, activity_cadastro.class);
+            Intent intent = new Intent(ActivityFormasLogin.this, ActivityCadastro.class);
+            startActivity(intent);
+        });
+
+        // Configurar o botão "Login" para redirecionar para ActivityLogin
+        loginButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityFormasLogin.this, ActivityLogin.class);
             startActivity(intent);
         });
 
         // Verificar se o usuário já está logado
         if (authManager.isUserLoggedIn()) {
-            nextActivity();
+            authManager.verificarPerfil();
         }
     }
 
@@ -115,11 +123,5 @@ public class activity_formasLogin extends AppCompatActivity {
                 .addOnFailureListener(this, e -> {
                     Toast.makeText(this, "Falha ao iniciar o login: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
-    }
-
-    private void nextActivity(){
-        finish();
-        Intent intent = new Intent(activity_formasLogin.this, activity_tela_principal.class); // Ajuste para a atividade correta
-        startActivity(intent);
     }
 }

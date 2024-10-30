@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_tela_gradiente"
-    tools:context=".activity_tela_principal">
+    tools:context=".ActivityTelaPrincipal">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -40,6 +40,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:id="@+id/txtNomeP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

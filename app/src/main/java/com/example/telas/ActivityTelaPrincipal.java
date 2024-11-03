@@ -2,10 +2,14 @@ package com.example.telas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView; // Import necessário para TextView
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +23,8 @@ import java.util.Date;
 import java.util.List;
 
 public class ActivityTelaPrincipal extends AppCompatActivity {
+
+   // private LinearLa
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +87,25 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
         TreinoAdapter adapter = new TreinoAdapter(treinoList);
         treinoRecyclerView.setAdapter(adapter);
 
-        // Configurar botão de definir treinos
-        Button treino = findViewById(R.id.treino);
-        treino.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityTelaPrincipal.this, DefinirTreinos.class);
-            startActivity(intent);
+
+
+        // Inicializar o botão de perfil e o menu oculto
+        ImageButton perfilButton = findViewById(R.id.perfil);
+        LinearLayout hiddenMenu = findViewById(R.id.linearLayout);
+
+        // Configurar visibilidade do menu
+        hiddenMenu.setVisibility(View.GONE); // Oculto por padrão
+
+        perfilButton.setOnClickListener(v -> {
+            // Alternar a visibilidade do menu
+            if (hiddenMenu.getVisibility() == View.GONE) {
+                hiddenMenu.setVisibility(View.VISIBLE);
+            } else {
+                hiddenMenu.setVisibility(View.GONE);
+            }
         });
+
+
+
     }
 }

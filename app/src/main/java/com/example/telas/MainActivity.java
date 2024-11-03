@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             authManager.verificarPerfil();
         } else {
             // Redirecionar para a tela de login
-            Intent intent = new Intent(this, ActivityFormasLogin.class);
+            Intent intent = new Intent(this, ActivityTelaPrincipal.class);
             startActivity(intent);
             finish();
         }

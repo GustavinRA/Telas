@@ -82,6 +82,17 @@
         <item name="android:src">@drawable/img_3</item> <!-- Aqui você pode definir um ícone padrão se desejar -->
     </style>
 
+    <style name="CustomCheckbox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/checkbox_background</item>
+        <item name="android:textColor">@color/checkbox_text_color</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="BotaoComBordaAmarela">
+        <item name="colorAccent">@color/yellow</item>
+    </style>
+
 
 
 

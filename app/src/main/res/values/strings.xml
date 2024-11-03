@@ -6,15 +6,14 @@
     <string name="showMore_tp">Ver detalhes</string>
     <string name="default_web_client_id">376739189218-4cnu2251prrqrdju4vnfahnhbemm22c2.apps.googleusercontent.com</string>
 
-    <string-array name = "Ciclo">
+    <string-array name="Ciclo">
         <item>Microciclo</item>
         <item>Mesociclo</item>
         <item>Macrociclo</item>
     </string-array>
 
 
-
-    <string-array name = "Fases">
+    <string-array name="Fases">
         <item>Competitiva</item>
         <item>Preparatória</item>
         <item>Transição</item>

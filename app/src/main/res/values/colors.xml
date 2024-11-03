@@ -6,5 +6,8 @@
     <color name="item">#383535</color>
     <color name="amarelo">#E7A600</color>
 
-
+    <color name="dark_background">#1E1E1E</color>
+    <color name="yellow">#ffff00</color>
+    <color name="gray">#444444</color>
+    <color name="checkbox_text_color">#FFFFFF</color>
 </resources>

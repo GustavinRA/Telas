@@ -50,14 +50,14 @@
                 android:visibility="gone">
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout"
+                    android:id="@+id/MeuPerfil"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/imagePerfil"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_alignParentStart="true"
@@ -70,12 +70,13 @@
                         android:id="@+id/textView16"
                         style="@style/CustomTextViewStyle"
                         android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView4"
+                        android:layout_toEndOf="@id/imagePerfil"
                         android:text="Meu perfil"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/notificacao"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -101,6 +102,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/privacidade"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -125,6 +127,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seguranca"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -149,6 +152,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/ajuda"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -173,6 +177,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/sair"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="10dp"
@@ -202,21 +207,20 @@
                 android:id="@+id/txtNomeP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginStart="6dp"
                 android:text="@string/txtNomeP"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChart"
-                android:layout_marginBottom="20dp"
-                android:outlineSpotShadowColor="@color/white"
-                android:outlineAmbientShadowColor="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
-
+                android:layout_height="250dp"
+                android:layout_marginBottom="20dp"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -225,59 +229,84 @@
                 android:layout_height="wrap_content" />
 
 
-
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/background_color"
-                android:elevation="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/editbottomhud_bg">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.25"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/home_tp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="29dp"
-                                android:layout_marginTop="4dp"
-                                android:layout_gravity="center"
-                                app:srcCompat="@drawable/home" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.25"
-                            android:orientation="vertical"/>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.25"
-                            android:orientation="vertical"/>
-                    </LinearLayout>
-                </com.google.android.material.bottomnavigation.BottomNavigationView>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
         </LinearLayout>
     </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/background_color"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/editbottomhud_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/home_tp"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/home" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/search" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+
+                        app:srcCompat="@drawable/img_time" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

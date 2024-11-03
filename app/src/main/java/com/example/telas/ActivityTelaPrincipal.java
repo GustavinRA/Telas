@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView; // Import necessário para TextView
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class ActivityTelaPrincipal extends AppCompatActivity {
 
-   // private LinearLa
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,13 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
         });
 
 
+
+
+        RelativeLayout layoutNotificacao = findViewById(R.id.notificacao);
+        layoutNotificacao.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityNotificacao.class);
+            startActivity(intent);
+        });
 
     }
 }

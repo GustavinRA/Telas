@@ -115,5 +115,11 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        RelativeLayout layoutUser = findViewById(R.id.MeuPerfil);
+        layoutUser.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
+            startActivity(intent);
+        });
     }
 }

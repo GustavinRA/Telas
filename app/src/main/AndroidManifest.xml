@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Telas"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityUser"
+            android:exported="false" />
+        <activity
             android:name=".ActivityBiblioteca"
             android:exported="false" />
         <activity

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+
 public class ExerciciosAdapter extends RecyclerView.Adapter<ExerciciosAdapter.ViewHolder> {
     private final List<Exercicio> exerciseList;
     private final Context context;
@@ -101,3 +102,5 @@ public class ExerciciosAdapter extends RecyclerView.Adapter<ExerciciosAdapter.Vi
         }
     }
 }
+
+

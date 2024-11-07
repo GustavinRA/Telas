@@ -20,6 +20,15 @@
             android:name=".ActivityUser"
             android:exported="false" />
         <activity
+            android:name=".ActivityCriacaoTreinos"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityBibliotecaTreino"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityCriacaoExercicios"
+            android:exported="false" />
+        <activity
             android:name=".ActivityBiblioteca"
             android:exported="false" />
         <activity
@@ -31,9 +40,7 @@
         <activity
             android:name=".ActivityCadastro"
             android:exported="false" />
-        <activity
-            android:name=".ActivityExercicios"
-            android:exported="false" />
+
         <activity
             android:name=".ActivityTelaPrincipal"
             android:exported="false" />

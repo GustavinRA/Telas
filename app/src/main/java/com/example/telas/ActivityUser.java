@@ -23,14 +23,14 @@ public class ActivityUser extends AppCompatActivity {
         // Encontra o botão Exercicio e define o listener de clique
         AppCompatButton buttonExercicio = findViewById(R.id.buttonExercicio);
         buttonExercicio.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityUser.this, ActivityTelaPrincipal.class);
+            Intent intent = new Intent(ActivityUser.this, ActivityCriacaoExercicios.class);
             startActivity(intent);
         });
 
         // Encontra o botão Treinos e define o listener de clique
         AppCompatButton buttonTreinos = findViewById(R.id.buttonTreinos);
         buttonTreinos.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityUser.this, ActivityTelaPrincipal.class);
+            Intent intent = new Intent(ActivityUser.this, ActivityBiblioteca.class);
             startActivity(intent);
         });
     }

@@ -82,6 +82,8 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
         treinoList.add(treino2);
         treinoList.add(treino3);
 
+
+
         // Configurar RecyclerView
         RecyclerView treinoRecyclerView = findViewById(R.id.treino_recycler_view);
         treinoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -111,15 +113,15 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
 
         RelativeLayout layoutNotificacao = findViewById(R.id.notificacao);
         layoutNotificacao.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityNotificacao.class);
-            startActivity(intent);
+            Intent intentNot = new Intent(ActivityTelaPrincipal.this, ActivityNotificacao.class);
+            startActivity(intentNot);
         });
 
 
         RelativeLayout layoutUser = findViewById(R.id.MeuPerfil);
         layoutUser.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
-            startActivity(intent);
+            Intent intentUser = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
+            startActivity(intentUser);
         });
     }
 }

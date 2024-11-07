@@ -66,15 +66,7 @@ public class DefinirTreinos extends AppCompatActivity {
             }
         });
 
-       //botao temporario da tela treino para exercicio
-        Button definir = findViewById(R.id.definir);
-        definir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DefinirTreinos.this, ActivityExercicios.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 

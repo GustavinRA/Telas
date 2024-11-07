@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background_tela_gradiente"
+    tools:context=".ActivityCriacaoExercicios">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="CRIAÇÃO DE EXERCÍCIOS"
+            android:textColor="@color/white"
+            android:textSize="19dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="56dp"
+            android:text="Dê um nome para seu exercício: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="34dp"
+            android:background="@drawable/editext_background"
+            android:hint="Exemplo: Supino reto, agachamento..."
+            android:inputType="text"
+            android:padding="5dp"
+            android:textColorHint="#B3B3B3"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="375dp"
+            android:layout_height="425dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText4">
+
+            <TextView
+                android:id="@+id/textView12"
+                style="@style/CustomTextViewStyle"
+                android:layout_marginTop="16dp"
+                android:text="Quais grupos musculares deseja trabalhar:"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+                android:layout_height="55dp"
+
+                android:layout_marginTop="12dp"
+                android:background="@drawable/checkbox_background"
+                android:padding="10dp"
+                android:text="Peito"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.068"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Costas"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/checkBox"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Tríceps"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Bíceps"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Abdômen"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox6"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+                android:layout_height="55dp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Quadríceps"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Panturrilha"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox9"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox8"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+
+                android:layout_height="55dp"
+
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="108dp"
+                android:background="@drawable/checkbox_background"
+                android:text="Ombro"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="40dp"
+
+                android:background="@drawable/checkbox_background"
+                android:text="Glúteos"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.074"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="165dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="40dp"
+
+                android:background="@drawable/checkbox_background"
+                android:text="Posterior de coxa"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.925"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        style="@style/botaoCinza"
+
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Retornar"
+        android:textColor="@color/amarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_adicionarTreino"
+        style="@style/botaoAmerelo"
+
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Adicionar a treinos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/salvarTreino"
+        style="@style/botaoAmerelo"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="28dp"
+        android:text="Salvar!"
+        app:layout_constraintBottom_toTopOf="@+id/btn_adicionarTreino"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

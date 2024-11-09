@@ -276,7 +276,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/btn_buscar"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_gravity="center"
@@ -293,7 +293,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/btn_historicoTreino"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_gravity="center"

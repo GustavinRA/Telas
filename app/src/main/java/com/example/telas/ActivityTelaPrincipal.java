@@ -123,5 +123,14 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
             Intent intentUser = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
             startActivity(intentUser);
         });
+
+        ImageButton btn_historico = findViewById(R.id.btn_historicoTreino);
+        btn_historico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHistorico = new Intent(ActivityTelaPrincipal.this, ActivityHistoricoTreino.class);
+                startActivity(intentHistorico);
+            }
+        });
     }
 }

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Telas"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityHistoricoTreino"
+            android:exported="false" />
+        <activity
             android:name=".ActivityUser"
             android:exported="false" />
         <activity
@@ -40,7 +43,6 @@
         <activity
             android:name=".ActivityCadastro"
             android:exported="false" />
-
         <activity
             android:name=".ActivityTelaPrincipal"
             android:exported="false" />

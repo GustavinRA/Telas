@@ -27,5 +27,6 @@ public class ActivityCriacaoExercicios extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

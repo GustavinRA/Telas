@@ -17,11 +17,15 @@
         android:theme="@style/Theme.Telas"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityHistoricoTreino"
+            android:exported="false"/>
+
             android:name=".recyclerviewTreinos.ActivityEditarTreino"
             android:exported="false" />
 
         <activity
             android:name=".recyclerviewPesquisa.ActivityPesquisa"
+
             android:exported="false" />
         <activity
             android:name=".ActivityUser"

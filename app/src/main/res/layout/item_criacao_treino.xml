@@ -9,11 +9,13 @@
     app:cardBackgroundColor="@color/item">
 
     <LinearLayout
+        android:id="@+id/criacaoTreino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Nome do exercício -->
         <TextView
             android:id="@+id/tvExerciseName"
             android:layout_width="wrap_content"
@@ -23,17 +25,18 @@
             android:textStyle="bold"
             android:textSize="16sp" />
 
+        <!-- Músculos afetados -->
         <TextView
             android:id="@+id/tvAffectedMuscles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="Músculos afetados: "
             android:textColor="@color/white"
             android:layout_marginTop="10dp" />
 
+        <!-- Botão para adicionar o exercício -->
         <Button
-            android:id="@+id/btnAddOrRemove"
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -43,6 +46,39 @@
             android:text="Adicionar"
             android:textColor="@android:color/black" />
 
+        <!-- Campos de edição do treino (visibilidade inicial: GONE) -->
+        <LinearLayout
+            android:id="@+id/editorTreino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/etSeries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:hint="Séries"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etRepetitions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:hint="Repetições"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etRest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:hint="Descanso"
+                android:inputType="time" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

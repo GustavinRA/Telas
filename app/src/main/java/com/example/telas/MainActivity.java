@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.telas.api.AuthManager;
+import com.example.telas.recyclerviewTreinos.ActivityEditarTreino;
 
 public class MainActivity extends AppCompatActivity {
 

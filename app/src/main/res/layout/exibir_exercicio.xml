@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:background="@color/cinza">
+
+    <LinearLayout
+        android:background="@color/cinza"
+        android:id="@+id/LinearExercicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/exercicio_nome_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercício X"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/cardview_dark_background"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!-- Séries -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Séries:"
+                    android:textColor="#D3D3D3" />
+
+                <EditText
+                    android:id="@+id/editTextSeries"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/numero_background"
+                    android:hint="Ex:4"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <!-- Repetições -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repetições:"
+                    android:textColor="#D3D3D3" />
+
+                <EditText
+                    android:id="@+id/editTextRepeticoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/numero_background"
+                    android:hint="Ex:8"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Tempo de descanso -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descanso:"
+                    android:textColor="#D3D3D3" />
+
+                <EditText
+                    android:id="@+id/editTextDescanso"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/numero_background"
+                    android:hint="Ex:2:00"
+                    android:inputType="time"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -19,9 +19,7 @@
         <activity
             android:name=".recyclerviewTreinos.ActivityEditarTreino"
             android:exported="false" />
-        <activity
-            android:name=".recyclerviewTreinos.ActivityEditarTreino"
-            android:exported="false" />
+
         <activity
             android:name=".recyclerviewPesquisa.ActivityPesquisa"
             android:exported="false" />

@@ -1,13 +1,16 @@
 package com.example.telas.recyclerviewTreinos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas.ActivityCriacaoTreinos;
 import com.example.telas.R;
 
 import java.util.ArrayList;
@@ -24,6 +27,8 @@ public class ActivityEditarTreino extends AppCompatActivity {
     private List<Exercicio> listaExerciciosEditar;
     private AdicionarExercicioAdapter adicionarExercicioAdapter;
 
+    private ImageButton btn_treino;
+
     // Referência para os elementos do layout
     private Button botaoEditar;
     private LinearLayout linearCrud;
@@ -33,6 +38,16 @@ public class ActivityEditarTreino extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_treino);
+
+        btn_treino = findViewById(R.id.btn_editarTreino);
+        btn_treino.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+          public void onClick(View v) {
+                Intent intent4 = new Intent(ActivityEditarTreino.this, ActivityCriacaoTreinos.class);
+                startActivity(intent4);
+            }
+      });
 
         // Inicializando os RecyclerViews
         recyclerViewExibicao = findViewById(R.id.RecyclerExibicao);

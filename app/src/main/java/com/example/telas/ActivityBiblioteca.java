@@ -1,18 +1,19 @@
 package com.example.telas;
 
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 
 public class ActivityBiblioteca extends AppCompatActivity {
 
     private RecyclerView recyclerViewBiblioteca;
     private ExerciciosAdapter adapter;
-    private List<Exercicio> exerciseList;
+    private SharedPreferencesManager sharedPreferencesManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,24 +23,18 @@ public class ActivityBiblioteca extends AppCompatActivity {
         recyclerViewBiblioteca = findViewById(R.id.recyclerBiblioteca);
         recyclerViewBiblioteca.setLayoutManager(new LinearLayoutManager(this));
 
-        exerciseList = new ArrayList<>();
+        // Inicializa o SharedPreferencesManager
+        sharedPreferencesManager = new SharedPreferencesManager(this);
 
-        Exercicio supinoReto = new Exercicio("Supino reto");
+        // Recupera os exercícios salvos
+        List<Exercicio> exerciseList = sharedPreferencesManager.getExercicios();
 
-
-        Exercicio crucifixo = new Exercicio("Crucifixo máquina");
-
-
-        Exercicio bicepsAlternado = new Exercicio("Bíceps alternado");
-
-
-        exerciseList.add(supinoReto);
-        exerciseList.add(crucifixo);
-        exerciseList.add(bicepsAlternado);
-
-        adapter = new ExerciciosAdapter(this, exerciseList);
-        recyclerViewBiblioteca.setAdapter(adapter);
+        if (exerciseList != null && !exerciseList.isEmpty()) {
+            // Inicializa o adapter com os exercícios salvos
+            adapter = new ExerciciosAdapter(this, exerciseList);
+            recyclerViewBiblioteca.setAdapter(adapter);
+        } else {
+            Toast.makeText(this, "Nenhum exercício encontrado", Toast.LENGTH_SHORT).show();
+        }
     }
 }
-
-

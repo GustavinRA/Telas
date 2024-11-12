@@ -17,7 +17,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
         <TextView
             android:id="@+id/textView29"
             style="@style/CustomTextViewStyle"
@@ -25,6 +28,17 @@
             android:text="Biblioteca de treinos"
             android:textSize="30sp"
             android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:id="@+id/btn_editarTreino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_add_circle_outline_24"/>
+</LinearLayout>
 
         <TextView
             android:id="@+id/textView30"

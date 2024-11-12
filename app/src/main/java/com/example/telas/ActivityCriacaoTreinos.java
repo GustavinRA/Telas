@@ -3,11 +3,9 @@ package com.example.telas;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,26 +14,31 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CriacaoTreinoAdapter adapter;
     private EditText editTextSearch;
-    private List<CriacaoTreinoExercicios> exercises;
-    private boolean isEditorVisible = false;
+    private List<Exercicio> exercicios;
+    private SharedPreferencesManager sharedPreferencesManager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criacao_treinos);
 
-        // Inicialização dos componentes de interface
+        // Inicializa o SharedPreferencesManager
+        sharedPreferencesManager = new SharedPreferencesManager(this);
+
+        // Inicializa os componentes da interface
         recyclerView = findViewById(R.id.recyclerView);
         editTextSearch = findViewById(R.id.editTextText5);
 
-        // Inicializa a lista de exercícios com alguns exemplos
-        exercises = new ArrayList<>();
-        exercises.add(new CriacaoTreinoExercicios("Agachamento", "Pernas, Glúteos", false));
-        exercises.add(new CriacaoTreinoExercicios("Supino", "Peito, Ombros, Tríceps", false));
-        exercises.add(new CriacaoTreinoExercicios("Remada", "Costas, Bíceps", false));
+        // Carregar os exercícios salvos do SharedPreferences
+        exercicios = sharedPreferencesManager.getExercicios();
+
+        // Se não houver dados salvos, inicializa com uma lista padrão
+        if (exercicios == null) {
+            exercicios = new ArrayList<>();
+        }
 
         // Inicializa o adapter
-        adapter = new CriacaoTreinoAdapter(exercises, this);
+        adapter = new CriacaoTreinoAdapter(exercicios, this);
 
         // Configura o RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -57,16 +60,8 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
         });
     }
 
-    // Método para mostrar os detalhes do treino (quando o usuário clica em um exercício)
-    public void showExerciseEditor(int position) {
-        // Alterna a visibilidade do editor de treino
-        CriacaoTreinoExercicios exercise = exercises.get(position);
-
-        if (exercise.isAdded()) {
-            Toast.makeText(this, "Exercício adicionado: " + exercise.getName(), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Exercício removido: " + exercise.getName(), Toast.LENGTH_SHORT).show();
-        }
-        // Aqui você pode fazer outras ações, como abrir o editor para edição
+    // Salva a lista de exercícios após alguma modificação
+    public void saveExercicios() {
+        sharedPreferencesManager.saveExercicios(exercicios);
     }
 }

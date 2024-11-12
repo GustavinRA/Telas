@@ -19,293 +19,389 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/item">
-
-
-                <ImageButton
-                    android:id="@+id/perfil"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="centerInside"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.955"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_4" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="310dp"
-                android:background="@color/item"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/MeuPerfil"
+                <androidx.constraintlayout.widget.ConstraintLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_height="wrap_content"
+                    android:background="@color/item">
 
-                    <ImageView
-                        android:id="@+id/imagePerfil"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Mini Profile Icon"
-                        app:srcCompat="@drawable/icon_user" />
 
-                    <TextView
-                        android:id="@+id/textView16"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imagePerfil"
-                        android:text="Meu perfil"
-                        android:textSize="16sp" />
-                </RelativeLayout>
+                    <ImageButton
+                        android:id="@+id/perfil"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerInside"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.955"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/img_4" />
 
-                <RelativeLayout
-                    android:id="@+id/notificacao"
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="310dp"
+                    android:background="@color/item"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/MeuPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/imagePerfil"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="Mini Profile Icon"
+                            app:srcCompat="@drawable/icon_user" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imagePerfil"
+                            android:text="Meu perfil"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/notificacao"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp">
 
 
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/bell" />
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            app:srcCompat="@drawable/bell" />
 
-                    <TextView
-                        android:id="@+id/textView17"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView5"
-                        android:text="Notificações"
-                        android:textSize="16sp" />
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/textView17"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imageView5"
+                            android:text="Notificações"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/privacidade"
+                    <RelativeLayout
+                        android:id="@+id/privacidade"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            app:srcCompat="@drawable/icon_lock" />
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imageView6"
+                            android:text="Privacidade"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/seguranca"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            app:srcCompat="@drawable/icon_shield" />
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imageView7"
+                            android:text="Segurança"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ajuda"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            app:srcCompat="@drawable/icon_question" />
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imageView8"
+                            android:text="Ajuda"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/sair"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            app:srcCompat="@drawable/icon_upload" />
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            style="@style/CustomTextViewStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/imageView9"
+                            android:text="Sair"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtNomeP"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/txtNomeP"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/icon_lock" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView6"
-                        android:text="Privacidade"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/seguranca"
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="20dp"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white" />
 
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/icon_shield" />
-
-                    <TextView
-                        android:id="@+id/textView19"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView7"
-                        android:text="Segurança"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/ajuda"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/treino_recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="wrap_content" />
 
-                    <ImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/icon_question" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="380dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="12dp">
 
-                    <TextView
-                        android:id="@+id/textView20"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView8"
-                        android:text="Ajuda"
-                        android:textSize="16sp" />
-                </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/exercicio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/cardview_dark_background"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        app:cardCornerRadius="12dp">
 
-                <RelativeLayout
-                    android:id="@+id/sair"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/icon_upload" />
+                            <TextView
+                                android:id="@+id/textView35"
+                                style="@style/CustomTextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Acesse sua biblioteca de exercício"
+                                android:textSize="19sp"
+                                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/textView21"
-                        style="@style/CustomTextViewStyle"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/imageView9"
-                        android:text="Sair"
-                        android:textSize="16sp" />
-                </RelativeLayout>
+                        </LinearLayout>
 
+                        <ImageButton
+                            android:id="@+id/AcessarExercicio"
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:contentDescription="Adicionar exercício"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:src="@drawable/icon_add" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="380dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/treino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/cardview_dark_background"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        app:cardCornerRadius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView36"
+                                style="@style/CustomTextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Acesse sua biblioteca de treinos"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/AcessarTreino"
+                            android:layout_width="78dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:contentDescription="Adicionar exercício"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:src="@drawable/icon_add" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtNomeP"
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/txtNomeP"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:layout_height="40dp"
+                android:background="@color/background_color"
+                android:elevation="3dp">
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/lineChart"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginBottom="20dp"
-                android:outlineAmbientShadowColor="@color/white"
-                android:outlineSpotShadowColor="@color/white" />
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/editbottomhud_bg">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/treino_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.25"
+                            android:orientation="vertical">
+
+                            <ImageButton
+                                android:id="@+id/home_tp"
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitCenter"
+                                app:srcCompat="@drawable/home" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.25"
+                            android:orientation="vertical">
+
+                            <ImageButton
+                                android:id="@+id/btn_buscar"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitCenter"
+                                app:srcCompat="@drawable/search" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.25"
+                            android:orientation="vertical">
+
+                            <ImageButton
+                                android:id="@+id/btn_historicoTreino"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitCenter"
+                                app:srcCompat="@drawable/img_time" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
         </LinearLayout>
     </ScrollView>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/background_color"
-        android:elevation="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/editbottomhud_bg">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/home_tp"
-                        android:layout_width="27dp"
-                        android:layout_height="27dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="6dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/home" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/btn_buscar"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="6dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/search" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/btn_historicoTreino"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="6dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitCenter"
-
-                        app:srcCompat="@drawable/img_time" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

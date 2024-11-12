@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:contentDescription="Remover exercício"
+            android:contentDescription="Adicionar exercício"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/icon_add" />

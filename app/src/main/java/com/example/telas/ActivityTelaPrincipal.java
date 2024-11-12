@@ -7,13 +7,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView; // Import necessário para TextView
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.telas.recyclerviewPesquisa.ActivityPesquisa;
+import com.example.telas.recyclerviewTreinos.ActivityEditarTreino;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -132,5 +135,34 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
                 startActivity(intentHistorico);
             }
         });
+
+        ImageButton acessarExercicioButton = findViewById(R.id.AcessarExercicio);
+        acessarExercicioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityBiblioteca.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton acessarTreinoButton = findViewById(R.id.AcessarTreino);
+        acessarTreinoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityEditarTreino.class);
+                startActivity(intent);
+            }
+        });
+
+
+        ImageButton botaoBuscar = findViewById(R.id.btn_buscar);
+        botaoBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityPesquisa.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

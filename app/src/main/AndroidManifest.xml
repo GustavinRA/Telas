@@ -20,6 +20,7 @@
             android:name=".ActivityHistoricoTreino"
             android:exported="false"/>
 
+        <activity
             android:name=".recyclerviewTreinos.ActivityEditarTreino"
             android:exported="false" />
 

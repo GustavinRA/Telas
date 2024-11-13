@@ -1,20 +1,33 @@
 package com.example.telas;
 
+/**
+ * Classe modelo para representar exercícios na criação de treinos.
+ */
 public class CriacaoTreinoExercicios {
+    private Long exerciseId;
     private String name;
     private String muscles;
-    private boolean isAdded;  // Estado se o exercício foi adicionado
+    private boolean isAdded;
     private String series;
     private String repetitions;
     private String rest;
 
-    public CriacaoTreinoExercicios(String name, String muscles, boolean isAdded) {
+    public CriacaoTreinoExercicios(Long exerciseId, String name, String muscles, boolean isAdded) {
+        this.exerciseId = exerciseId;
         this.name = name;
         this.muscles = muscles;
         this.isAdded = isAdded;
         this.series = "";
         this.repetitions = "";
         this.rest = "";
+    }
+
+    public Long getExerciseId() {
+        return exerciseId;
+    }
+
+    public void setExerciseId(Long exerciseId) {
+        this.exerciseId = exerciseId;
     }
 
     public String getName() {

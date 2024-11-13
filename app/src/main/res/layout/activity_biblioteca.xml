@@ -1,21 +1,85 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/dark_background"
-    android:padding="16dp">
+    android:background="@drawable/background_tela_gradiente"
+    tools:context=".ActivityBiblioteca">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Biblioteca de exercícios"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:layout_marginBottom="16dp" />
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerBiblioteca"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        <!-- Header Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Biblioteca de exercícios"
+                android:textSize="28sp"
+                android:textColor="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btn_addExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_add_circle_outline_24"
+                android:contentDescription="Adicionar exercício" />
+        </LinearLayout>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBiblioteca"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <!-- Empty State Layout -->
+        <LinearLayout
+            android:id="@+id/empty_state_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewNoExercises"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Você não tem exercícios ainda."
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/buttonCreateExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Criar exercício"
+                android:backgroundTint="@color/amarelo"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

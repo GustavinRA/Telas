@@ -20,17 +20,15 @@ public class ActivityUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        // Encontra o botão Exercicio e define o listener de clique
         AppCompatButton buttonExercicio = findViewById(R.id.buttonExercicio);
         buttonExercicio.setOnClickListener(v -> {
             Intent intent = new Intent(ActivityUser.this, ActivityCriacaoExercicios.class);
             startActivity(intent);
         });
 
-        // Encontra o botão Treinos e define o listener de clique
         AppCompatButton buttonTreinos = findViewById(R.id.buttonTreinos);
         buttonTreinos.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityUser.this, ActivityBiblioteca.class);
+            Intent intent = new Intent(ActivityUser.this, ActivityCriacaoTreinos.class);
             startActivity(intent);
         });
     }

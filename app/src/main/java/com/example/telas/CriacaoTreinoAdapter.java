@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,13 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adapter para a RecyclerView na ActivityCriacaoTreinos.
+ */
 public class CriacaoTreinoAdapter extends RecyclerView.Adapter<CriacaoTreinoAdapter.CriacaoTreinoViewHolder> {
 
     private List<CriacaoTreinoExercicios> exercises;
+    private List<CriacaoTreinoExercicios> exercisesFull;
     private Context context;
 
     public CriacaoTreinoAdapter(List<CriacaoTreinoExercicios> exercises, Context context) {
-        this.exercises = exercises;
+        this.exercises = new ArrayList<>(exercises);
+        this.exercisesFull = new ArrayList<>(exercises);
         this.context = context;
     }
 
@@ -39,7 +45,6 @@ public class CriacaoTreinoAdapter extends RecyclerView.Adapter<CriacaoTreinoAdap
         holder.tvExerciseName.setText(exercise.getName());
         holder.tvMuscles.setText(exercise.getMuscles());
 
-        // Exibir ou esconder os campos de edição
         if (exercise.isAdded()) {
             holder.editorTreino.setVisibility(View.VISIBLE);
             holder.btnAdd.setText("Remover");
@@ -48,19 +53,15 @@ public class CriacaoTreinoAdapter extends RecyclerView.Adapter<CriacaoTreinoAdap
             holder.btnAdd.setText("Adicionar");
         }
 
-        // Configurar o botão de adicionar/remover
         holder.btnAdd.setOnClickListener(v -> {
-            // Alternar a visibilidade do editor de treino
             exercise.setAdded(!exercise.isAdded());
-            notifyItemChanged(position); // Atualiza a visualização
+            notifyItemChanged(position);
         });
 
-        // Atualizar os campos de série, repetição e descanso
         holder.etSeries.setText(exercise.getSeries());
         holder.etRepetitions.setText(exercise.getRepetitions());
         holder.etRest.setText(exercise.getRest());
 
-        // Salvar os dados quando os campos forem alterados
         holder.etSeries.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 exercise.setSeries(holder.etSeries.getText().toString());
@@ -103,16 +104,23 @@ public class CriacaoTreinoAdapter extends RecyclerView.Adapter<CriacaoTreinoAdap
             etRest = itemView.findViewById(R.id.etRest);
         }
     }
-    public void filter(String query) {
-        List<CriacaoTreinoExercicios> filteredList = new ArrayList<>();
 
-        for (CriacaoTreinoExercicios exercise : exercises) {
-            if (exercise.getName().toLowerCase().contains(query.toLowerCase()) ||
-                    exercise.getMuscles().toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(exercise);
+    /**
+     * Filtra a lista de exercícios com base na query.
+     */
+    public void filter(String query) {
+        exercises.clear();
+        if (query == null || query.isEmpty()) {
+            exercises.addAll(exercisesFull);
+        } else {
+            String lowerCaseQuery = query.toLowerCase();
+            for (CriacaoTreinoExercicios exercise : exercisesFull) {
+                if (exercise.getName().toLowerCase().contains(lowerCaseQuery) ||
+                        exercise.getMuscles().toLowerCase().contains(lowerCaseQuery)) {
+                    exercises.add(exercise);
+                }
             }
         }
-        exercises = filteredList;
-        notifyDataSetChanged();  // Notifica que a lista foi alterada
+        notifyDataSetChanged();
     }
 }

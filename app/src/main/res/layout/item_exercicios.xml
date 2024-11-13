@@ -13,23 +13,26 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
+        <!-- EditText para o nome do exercício -->
+        <EditText
             android:id="@+id/exercicio_nome"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="Nome:"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:enabled="false" /> <!-- Inicialmente desabilitado -->
+
+        <!-- TextView para os músculos afetados -->
         <TextView
             android:id="@+id/musculoAfetadoId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="Músculos afetados:"
             android:textColor="@android:color/white"
             android:layout_marginBottom="8dp" />
 
+        <!-- Botão "Editar" -->
         <Button
             android:id="@+id/edit_button"
             android:layout_width="wrap_content"
@@ -37,89 +40,110 @@
             android:layout_marginTop="8dp"
             android:text="Editar"
             android:background="@drawable/buttonbrd"
-            android:textColor="@color/black"
-           />
+            android:textColor="@color/black" />
 
-
-        <GridLayout
-        android:id="@+id/checkbox_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:columnCount="2"
-        android:rowCount="5"
-        android:orientation="vertical">
-
-        <CheckBox
-            android:id="@+id/checkbox_peito"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
+        <!-- Container para os checkboxes e botão "Salvar" -->
+        <LinearLayout
+            android:id="@+id/checkbox_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Peito"/>
+            android:visibility="gone"
+            android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/checkbox_triceps"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tríceps"/>
+            <!-- GridLayout para os checkboxes -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="5">
 
-        <CheckBox
-            android:id="@+id/checkbox_abdomen"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Abdômen"/>
+                <!-- CheckBoxes -->
+                <CheckBox
+                    android:id="@+id/checkbox_peito"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Peito" />
 
-        <CheckBox
-            android:id="@+id/checkbox_panturrilha"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Panturrilha"/>
+                <CheckBox
+                    android:id="@+id/checkbox_triceps"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tríceps" />
 
-        <CheckBox
-            android:id="@+id/checkbox_gluteos"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Glúteos"/>
+                <CheckBox
+                    android:id="@+id/checkbox_abdomen"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abdômen" />
 
-        <CheckBox
-            android:id="@+id/checkbox_costas"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Costas"/>
+                <CheckBox
+                    android:id="@+id/checkbox_panturrilha"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Panturrilha" />
 
-        <CheckBox
-            android:id="@+id/checkbox_biceps"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bíceps"/>
+                <CheckBox
+                    android:id="@+id/checkbox_gluteos"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Glúteos" />
 
-        <CheckBox
-            android:id="@+id/checkbox_quadriceps"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quadríceps"/>
-        <CheckBox
-            android:id="@+id/checkbox_ombro"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ombro"/>
-    </GridLayout>
+                <CheckBox
+                    android:id="@+id/checkbox_costas"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Costas" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_biceps"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bíceps" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_quadriceps"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quadríceps" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_ombro"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ombro" />
+
+
+            </GridLayout>
+
+            <!-- Botão "Salvar" -->
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salvar"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/buttonbrd"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

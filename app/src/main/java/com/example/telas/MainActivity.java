@@ -19,11 +19,9 @@ public class MainActivity extends AppCompatActivity {
         authManager = new AuthManager(this);
 
         if(authManager.isUserLoggedIn()){
-            // Verificar se o perfil existe
             authManager.verificarPerfil();
         } else {
-            // Redirecionar para a tela de login
-            Intent intent = new Intent(this, ActivityTelaPrincipal.class);
+            Intent intent = new Intent(this, ActivityFormasLogin.class);
             startActivity(intent);
             finish();
         }

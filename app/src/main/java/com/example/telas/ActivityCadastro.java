@@ -58,7 +58,7 @@ public class ActivityCadastro extends AppCompatActivity {
 
         AuthManager authManager = new AuthManager(ActivityCadastro.this);
 
-        authManager.realizarLogin(email, senha);
+        authManager.realizarRegistro(email, email, senha);
     }
 
     private void nextActivity(){

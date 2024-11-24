@@ -149,7 +149,7 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
         acessarTreinoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityEditarTreino.class);
+                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityCriacaoTreinos.class);
                 startActivity(intent);
             }
         });

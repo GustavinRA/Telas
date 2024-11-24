@@ -15,9 +15,13 @@ import com.example.telas.model.GoogleLoginRequest;
 import com.example.telas.model.JwtResponse;
 import com.example.telas.model.LoginRequest;
 import com.example.telas.model.LoginResponse;
+import com.example.telas.model.MessageResponse;
 import com.example.telas.model.ProfileResponse;
+import com.example.telas.model.RegisterRequest;
 import com.example.telas.model.dto.UserDTO;
+import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -133,6 +137,59 @@ public class AuthManager {
             }
         });
     }
+
+    /**
+     * Realiza o registro de um novo usuário com username, email e senha.
+     *
+     * @param username O nome de usuário.
+     * @param email O email do usuário.
+     * @param senha A senha do usuário.
+     */
+    public void realizarRegistro(String username, String email, String senha) {
+        AuthService authService = ApiClient.getClient().create(AuthService.class);
+
+        RegisterRequest registerRequest = new RegisterRequest(username, email, senha);
+
+        Call<MessageResponse> call = authService.registerUser(registerRequest);
+        call.enqueue(new Callback<MessageResponse>() {
+            @Override
+            public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
+                if(response.isSuccessful()){
+                    MessageResponse messageResponse = response.body();
+                    if(messageResponse != null){
+                        Toast.makeText(context, messageResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "Registro efetuado com sucesso.", Toast.LENGTH_SHORT).show();
+                    }
+                    realizarLogin(email, senha);
+                } else {
+                    // Tentar obter a mensagem de erro da resposta
+                    try {
+                        String errorBody = response.errorBody().string();
+                        // Usando Gson para parsear o erro
+                        Gson gson = new Gson();
+                        MessageResponse errorResponse = gson.fromJson(errorBody, MessageResponse.class);
+                        if(errorResponse != null && errorResponse.getMessage() != null){
+                            Toast.makeText(context, errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Erro no registro. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(context, "Erro no registro. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                    Log.e("AuthManager", "Resposta não bem-sucedida: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MessageResponse> call, Throwable t) {
+                Toast.makeText(context, "Erro de rede: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("AuthManager", "Falha na requisição: " + t.getMessage());
+            }
+        });
+    }
+
 
     /**
      * Verifica se o perfil do usuário existe no backend.

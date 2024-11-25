@@ -23,7 +23,7 @@
             android:text="Nome: "
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <!-- Músculos afetados -->
         <TextView
@@ -32,7 +32,9 @@
             android:layout_height="wrap_content"
             android:text="Músculos afetados: "
             android:textColor="@color/white"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:textSize="20sp" />
+
 
         <!-- Botão para adicionar o exercício -->
         <Button
@@ -60,6 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:hint="Séries"
                 android:inputType="number" />
 
@@ -68,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:hint="Repetições"
                 android:inputType="number" />
 
@@ -76,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:hint="Descanso"
                 android:inputType="time" />
         </LinearLayout>

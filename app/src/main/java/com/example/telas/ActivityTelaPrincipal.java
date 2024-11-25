@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.telas.bibliotecaTreinos.ActivityBibliotecaTreino;
 import com.example.telas.recyclerviewPesquisa.ActivityPesquisa;
 import com.example.telas.recyclerviewTreinos.ActivityEditarTreino;
 import com.github.mikephil.charting.charts.LineChart;
@@ -149,7 +150,7 @@ public class ActivityTelaPrincipal extends AppCompatActivity {
         acessarTreinoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityCriacaoTreinos.class);
+                Intent intent = new Intent(ActivityTelaPrincipal.this, ActivityBibliotecaTreino.class);
                 startActivity(intent);
             }
         });

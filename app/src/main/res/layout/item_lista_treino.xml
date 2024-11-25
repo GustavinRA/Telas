@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical"
+    android:background="@color/cinza">
+
+    <!-- Nome do treino -->
+    <TextView
+        android:id="@+id/tvTrainingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        style="@style/CustomTextViewStyle"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginEnd="16dp" />
+
+    <!-- RecyclerView para os exercícios (se necessário) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExercises"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <!-- Botão para excluir o treino -->
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_bin"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        app:tint="@color/amarelo"
+        android:background="?attr/selectableItemBackground" />
+</LinearLayout>

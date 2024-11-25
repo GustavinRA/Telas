@@ -35,7 +35,7 @@
             android:name=".ActivityCriacaoTreinos"
             android:exported="false" />
         <activity
-            android:name=".ActivityBibliotecaTreino"
+            android:name=".bibliotecaTreinos.ActivityBibliotecaTreino"
             android:exported="false" />
         <activity
             android:name=".ActivityCriacaoExercicios"

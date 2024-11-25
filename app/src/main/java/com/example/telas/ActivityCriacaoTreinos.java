@@ -1,5 +1,6 @@
 package com.example.telas;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.telas.api.WorkoutService;
 import com.example.telas.model.Exercise;
 import com.example.telas.model.Workout;
 import com.example.telas.model.WorkoutExercise;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -161,6 +163,15 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
 
         workout.setExercises(workoutExercises);
 
+        // Salvar treino no SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("TREINOS", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String workoutJson = gson.toJson(workout);
+        editor.putString(workoutName, workoutJson);
+        editor.apply();
+
+        // Chamada da API
         Call<Workout> call = workoutService.createWorkout("Bearer " + token, workout);
         call.enqueue(new Callback<Workout>() {
             @Override

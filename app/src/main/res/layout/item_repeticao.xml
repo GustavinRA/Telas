@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvExerciseName2"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exercicio"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvAffectedMuscles2"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="musculo"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:id="@+id/llExerciseDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tvSets"
+            style="@style/CustomTextViewStyle"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Séries: 0"
+            android:textColor="@color/white"
+             />
+
+        <TextView
+            android:id="@+id/tvReps"
+            style="@style/CustomTextViewStyle"
+
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repetições: 0"
+            />
+
+        <TextView
+            android:id="@+id/tvRest"
+            style="@style/CustomTextViewStyle"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descanso: 0s"
+            />
+
+    </LinearLayout>
+</LinearLayout>

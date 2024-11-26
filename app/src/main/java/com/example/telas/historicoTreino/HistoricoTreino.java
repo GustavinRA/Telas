@@ -1,4 +1,4 @@
-package com.example.telas;
+package com.example.telas.historicoTreino;
 
 public class HistoricoTreino {
 

@@ -16,8 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Telas"
         tools:targetApi="31">
+
         <activity
-            android:name=".ActivityHistoricoTreino"
+            android:name=".historicoTreino.CriacaoRegistroTreino"
+            android:exported="false"/>
+
+        <activity
+            android:name=".historicoTreino.ActivityHistoricoTreino"
             android:exported="false"/>
 
         <activity
@@ -29,7 +34,7 @@
 
             android:exported="false" />
         <activity
-            android:name=".ActivityUser"
+            android:name=".user.ActivityUser"
             android:exported="false" />
         <activity
             android:name=".ActivityCriacaoTreinos"

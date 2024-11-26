@@ -1,16 +1,14 @@
-package com.example.telas;
+package com.example.telas.user;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.telas.ActivityCriacaoExercicios;
+import com.example.telas.ActivityCriacaoTreinos;
+import com.example.telas.R;
 
 public class ActivityUser extends AppCompatActivity {
 

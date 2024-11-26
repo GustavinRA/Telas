@@ -227,8 +227,47 @@
                     android:outlineAmbientShadowColor="@color/white"
                     android:outlineSpotShadowColor="@color/white" />
 
+                <CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <!-- Botão para abrir o Dialog e escolher o treino -->
+                    <Button
+                        android:id="@+id/btnOpenDialog"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Escolher Treino"
+                        android:layout_marginEnd="16dp"
+                        android:backgroundTint="@color/amarelo"
+                        android:textColor="@color/black"
+                        />
+
+                    <!-- Botão para remover o treino -->
+                    <Button
+                        android:id="@+id/btnRemoveTraining"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remover Treino"
+                        android:backgroundTint="@color/amarelo"
+                        android:textColor="@color/black"
+                        android:visibility="gone"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/treino_recycler_view"
+                    android:layout_marginTop="5dp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

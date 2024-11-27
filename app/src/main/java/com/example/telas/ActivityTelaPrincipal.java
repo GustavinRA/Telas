@@ -23,6 +23,8 @@ import com.example.telas.calendario.DialogSpinner;
 import com.example.telas.historicoTreino.ActivityHistoricoTreino;
 import com.example.telas.model.Workout;
 import com.example.telas.recyclerviewPesquisa.ActivityPesquisa;
+import com.example.telas.termosUso.ActivityAjuda;
+import com.example.telas.termosUso.ActivityTermosUso;
 import com.example.telas.user.ActivityUser;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -125,7 +127,15 @@ public class ActivityTelaPrincipal extends AppCompatActivity implements DialogSp
         });
 
 
+        /**
+         * Botões do menu de perfil
+         */
 
+        RelativeLayout layoutUser = findViewById(R.id.MeuPerfil);
+        layoutUser.setOnClickListener(v -> {
+            Intent intentUser = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
+            startActivity(intentUser);
+        });
 
         RelativeLayout layoutNotificacao = findViewById(R.id.notificacao);
         layoutNotificacao.setOnClickListener(v -> {
@@ -133,12 +143,38 @@ public class ActivityTelaPrincipal extends AppCompatActivity implements DialogSp
             startActivity(intentNot);
         });
 
-
-        RelativeLayout layoutUser = findViewById(R.id.MeuPerfil);
-        layoutUser.setOnClickListener(v -> {
-            Intent intentUser = new Intent(ActivityTelaPrincipal.this, ActivityUser.class);
-            startActivity(intentUser);
+        RelativeLayout layoutTermos = findViewById(R.id.privacidade);
+        layoutTermos.setOnClickListener(v -> {
+            Intent intentTermos = new Intent(ActivityTelaPrincipal.this, ActivityTermosUso.class);
+            startActivity(intentTermos);
         });
+
+        RelativeLayout layoutAjuda = findViewById(R.id.ajuda);
+        layoutAjuda.setOnClickListener(v -> {
+            Intent intentAjuda = new Intent(ActivityTelaPrincipal.this, ActivityAjuda.class);
+            startActivity(intentAjuda);
+        });
+
+
+        RelativeLayout layoutExit = findViewById(R.id.sair);
+        layoutExit.setOnClickListener(v -> {
+            // Limpar os dados de login no SharedPreferences
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear(); // Limpa todos os dados salvos
+            editor.apply(); // Aplica as alterações
+
+            // Redirecionar para a tela de login
+            Intent intentExit = new Intent(ActivityTelaPrincipal.this, ActivityFormasLogin.class);
+            intentExit.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Limpa a pilha de atividades
+            startActivity(intentExit);
+
+            // Finalizar a atividade atual (opcional, se você quiser fechar a tela principal)
+            finish();
+        });
+
+
+
 
         ImageButton btn_historico = findViewById(R.id.btn_historicoTreino);
         btn_historico.setOnClickListener(new View.OnClickListener() {

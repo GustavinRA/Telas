@@ -81,7 +81,7 @@
                     app:srcCompat="@drawable/img_4" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/nomeUser"
                     style="@style/CustomTextViewStyle"
                     android:layout_marginTop="10dp"
                     android:text="Usuário"
@@ -95,19 +95,20 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/txtNomeP"
                     style="@style/CustomTextViewStyle"
                     android:layout_marginTop="20dp"
-                    android:text="Texto"
+                    android:text="Fazendo o simples hoje para se tornar extraordinário amanhã."
+                    android:textSize="10sp"
                     app:layout_constraintBottom_toTopOf="@+id/imageView4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView22"
+                    app:layout_constraintTop_toBottomOf="@+id/nomeUser"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textView27"
+                    android:id="@+id/pesoUser"
                     style="@style/CustomTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,17 +117,17 @@
                     android:layout_marginBottom="15dp"
                     android:text="Peso: "
                     android:textColor="@color/amarelo"
-                    app:layout_constraintBottom_toTopOf="@+id/textView24"
-                    app:layout_constraintEnd_toStartOf="@+id/textView31"
+                    app:layout_constraintBottom_toTopOf="@+id/alturaUser"
+                    app:layout_constraintEnd_toStartOf="@+id/generoUser"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/GymNotes"
                     app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/alturaUser"
                     style="@style/CustomTextViewStyle"
                     android:layout_marginBottom="52dp"
-                    android:text="Altura: 1.80cm "
+                    android:text="Altura"
                     android:textColor="@color/amarelo"
                     app:layout_constraintBottom_toTopOf="@+id/imageView4"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +135,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView31"
+                    android:id="@+id/generoUser"
                     style="@style/CustomTextViewStyle"
                     android:layout_marginTop="120dp"
                     android:text="Gênero sexual: "
@@ -147,7 +148,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textView32"
+                    android:id="@+id/idadeUser"
                     style="@style/CustomTextViewStyle"
                     android:layout_marginStart="209dp"
                     android:layout_marginTop="12dp"
@@ -158,8 +159,8 @@
                     app:layout_constraintBottom_toTopOf="@+id/imageView4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textView24"
-                    app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                    app:layout_constraintStart_toEndOf="@+id/alturaUser"
+                    app:layout_constraintTop_toBottomOf="@+id/generoUser" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -171,7 +172,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.516"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView32"
+                    app:layout_constraintTop_toBottomOf="@+id/idadeUser"
                     app:srcCompat="@drawable/line_25" />
 
                 <ImageView

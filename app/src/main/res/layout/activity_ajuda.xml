@@ -1,0 +1,193 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".termosUso.ActivityAjuda"
+    android:background="@color/background_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título da Ajuda -->
+            <TextView
+                android:id="@+id/textAjuda"
+                style="@style/CustomTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Buscando ajuda?"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/textView38"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Se você está explorando o app pela primeira vez ou tem dúvidas, aqui vão algumas dicas de como funciona:" />
+
+            <!-- Adicionando título e texto da seção Home -->
+            <TextView
+                android:id="@+id/textHomeTitle"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Home"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView40"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nossa página principal fornece a visualização de todas as informações necessárias para acompanhar seus treinos, estes são:" />
+
+            <TextView
+                android:id="@+id/textView41"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  • Calendário: Mostra os dias que estão estipulados os treinos escolhidos por você;\n  • Biblioteca de treinos e exercícios: Dão acesso ao gerenciamento dos seus treinos e exercícios individualmente." />
+
+            <!-- Adicionando título e texto da seção Biblioteca de Exercícios -->
+            <TextView
+                android:id="@+id/textExerciciosTitle"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Biblioteca de Exercícios"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView45"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="O aplicativo foi montado a partir da ideia de poder montar seus próprios exercícios e gerenciá-los de forma totalmente independente. Com isso em mente, nossa aba de biblioteca de exercícios te deixa criar do jeito que preferir cada um, isso com:\n •  Nome;\n •  Grupo muscular.\n Cada exercício ficará salvo para seu uso em treinos variados." />
+
+            <!-- Adicionando título e texto da seção Biblioteca de Treinos -->
+            <TextView
+                android:id="@+id/textTreinosTitle"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Biblioteca de Treinos"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView47"
+                style="@style/CustomTextViewStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Os treinos são montados a partir dos exercícios, então para que possam ser feitos, é preciso que tenha feio ao menos um exercício.\n Eles também são montados de forma independente e manual por você, e neles são colocados algumas informações importantes:\n •  Nome do treino;\n •  Exercícios que estarão nele;\n •  Quantidade de séries e repetições de cada exercício;\n •  Tempo de descanso entre séries." />
+
+            <!-- Adicionando seção Perfil -->
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textPerfilTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Perfil"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No seu perfil de usuário, você tem acesso a todas as suas próprias informações como nome, altura, peso e sexualidade, além de poder gerenciar suas conexões com outras pessoas. Você também consegue gerenciar os treinos e exercícios, tem caminhos que te levam para a visualização e modificação deles." />
+
+            <!-- Adicionando seção Notificações -->
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textNotificacoesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Notificações"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textNotificacoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Na aba de notificações ficam todas as mensagens que você receberá de informação do aplicativo. Sugestões de amizade, treinos do dia são alguns exemplos." />
+
+            <!-- Adicionando seção Histórico de Treinos -->
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textHistoricoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Histórico de Treinos"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textHistorico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seu histórico de treinos registra e mostra todos os seus treinos já realizados, como foram feitos, gravando as informações do treino e os dias que foram realizados também." />
+
+            <!-- Adicionando seção Pesquisa -->
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textPesquisaTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Pesquisa"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/CustomTextViewStyle"
+
+                android:id="@+id/textPesquisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Na aba de pesquisa você pode encontrar mais pessoas para ter uma conexão maior de amigos e treinadores que podem te ajudar com treinos e que você também possa ajudar." />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

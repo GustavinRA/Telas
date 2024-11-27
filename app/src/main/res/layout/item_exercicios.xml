@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Editar"
-            android:background="@drawable/buttonbrd"
+            android:backgroundTint="@color/amarelo"
             android:textColor="@color/black" />
 
         <!-- Container para os checkboxes e botão "Salvar" -->

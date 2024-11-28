@@ -21,6 +21,7 @@ import com.example.telas.api.ApiClient;
 import com.example.telas.api.ExerciseService;
 import com.example.telas.model.Exercise;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -94,7 +95,7 @@ public class ExercicioAdapter extends RecyclerView.Adapter<ExercicioAdapter.View
                 "Quadríceps", "Panturrilha", "Ombro", "Glúteos"
         };
 
-        Set<String> selectedMuscles = new HashSet<>(exercise.getMusculosAfetados());
+        List<String> selectedMuscles = new ArrayList<>(exercise.getMusculosAfetados());
         exercise.setMusculosAfetados(selectedMuscles);
 
         for (int i = 0; i < checkboxes.length; i++) {

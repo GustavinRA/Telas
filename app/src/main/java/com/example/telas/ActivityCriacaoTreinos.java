@@ -23,7 +23,10 @@ import com.example.telas.model.WorkoutExercise;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +42,7 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
     private EditText editTextSearch;
     private EditText editTextWorkoutName;
     private List<CriacaoTreinoExercicios> exercises = new ArrayList<>();
+    private Map<Long, Exercise> exerciseMap = new HashMap<>();
     private SharedPreferencesManager sharedPreferencesManager;
     private Button btnCreateWorkout;
 
@@ -104,6 +108,7 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
                                     String.join(", ", ex.getMusculosAfetados()),
                                     false
                             ));
+                            exerciseMap.put(ex.getExerciseId(), ex);
                         }
                         adapter = new CriacaoTreinoAdapter(exercises, ActivityCriacaoTreinos.this);
                         recyclerView.setAdapter(adapter);
@@ -146,8 +151,20 @@ public class ActivityCriacaoTreinos extends AppCompatActivity {
                 }
 
                 WorkoutExercise we = new WorkoutExercise();
-                Exercise exercise = new Exercise();
-                exercise.setExerciseId(ex.getExerciseId());
+
+                // Recupere o Exercise completo do mapa
+                Exercise exercise = exerciseMap.get(ex.getExerciseId());
+                if (exercise == null) {
+                    // Caso não seja encontrado, crie um novo (não deve acontecer)
+                    exercise = new Exercise();
+                    exercise.setExerciseId(ex.getExerciseId());
+                    exercise.setNome(ex.getName());
+                    List<String> musclesList = Arrays.asList(ex.getMuscles().split(", "));
+                    exercise.setMusculosAfetados(musclesList);
+                }
+
+                Log.d("SaveWorkout", "Exercise ID: " + exercise.getExerciseId() + ", Nome: " + exercise.getNome() + ", Músculos: " + exercise.getMusculosAfetados());
+
                 we.setExercise(exercise);
                 we.setSeries(Integer.parseInt(ex.getSeries()));
                 we.setRepetitions(Integer.parseInt(ex.getRepetitions()));

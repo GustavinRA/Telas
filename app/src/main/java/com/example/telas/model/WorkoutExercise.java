@@ -7,6 +7,9 @@ public class WorkoutExercise {
     private int rest;
     private Exercise exercise;
 
+    public WorkoutExercise() {
+    }
+
     public Exercise getExercise() {
         return exercise;
     }

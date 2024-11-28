@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.telas.R;
+import com.example.telas.model.Exercise;
 import com.example.telas.model.WorkoutExercise;
 
 import java.util.HashMap;
@@ -38,18 +39,23 @@ public class AdapterExercise extends RecyclerView.Adapter<AdapterExercise.Exerci
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         WorkoutExercise workoutExercise = workoutExercises.get(position);
+        Exercise exercise = workoutExercise.getExercise();
 
-        // Nome do exercício
-        String nomeExercicio = workoutExercise.getExercise().getNome();
-        Log.d("AdapterExercise", "Nome do exercício: " + nomeExercicio);
-        holder.tvExerciseName2.setText(nomeExercicio != null ? nomeExercicio : "Nome não disponível");
+        if (exercise != null) {
+            String nomeExercicio = exercise.getNome();
+            Log.d("AdapterExercise", "Nome do exercício: " + nomeExercicio);
+            holder.tvExerciseName2.setText(nomeExercicio != null ? nomeExercicio : "Nome não disponível");
 
-
-        // Musculatura afetada (convertendo Set<String> para String)
-        Set<String> muscles = workoutExercise.getExercise().getMusculosAfetados();
-        if (muscles != null && !muscles.isEmpty()) {
-            holder.tvMusclesAffected2.setText("Músculos: " + String.join(", ", muscles)); // Concatenando os músculos separados por vírgula
+            List<String> muscles = exercise.getMusculosAfetados();
+            if (muscles != null && !muscles.isEmpty()) {
+                holder.tvMusclesAffected2.setText("Músculos: " + String.join(", ", muscles));
+            } else {
+                holder.tvMusclesAffected2.setText("Músculos: Não especificado");
+                Log.e("AdapterExercise", "Muscles list is empty or null for exercise: " + nomeExercicio);
+            }
         } else {
+            Log.e("AdapterExercise", "Exercise is null at position " + position);
+            holder.tvExerciseName2.setText("Exercício não disponível");
             holder.tvMusclesAffected2.setText("Músculos: Não especificado");
         }
 

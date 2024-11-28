@@ -15,36 +15,34 @@ public class ProfileResponse {
     @SerializedName("weight")
     private float weight;
 
+    @SerializedName("gender") // Novo campo adicionado
+    private String gender;
+
     // Getters e Setters
-    public Long getProfileId() {
-        return profileId;
-    }
+    public Long getProfileId() { return profileId; }
+    public void setProfileId(Long profileId) { this.profileId = profileId; }
 
-    public void setProfileId(Long profileId) {
-        this.profileId = profileId;
-    }
+    public byte getAge() { return age; }
+    public void setAge(byte age) { this.age = age; }
 
-    public byte getAge() {
-        return age;
-    }
+    public short getHeight() { return height; }
+    public void setHeight(short height) { this.height = height; }
 
-    public void setAge(byte age) {
-        this.age = age;
-    }
+    public float getWeight() { return weight; }
+    public void setWeight(float weight) { this.weight = weight; }
 
-    public short getHeight() {
-        return height;
-    }
+    public String getGender() { return gender; } // Getter para gender
+    public void setGender(String gender) { this.gender = gender; } // Setter para gender
 
-    public void setHeight(short height) {
-        this.height = height;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
+    // Sobrescrever o método toString()
+    @Override
+    public String toString() {
+        return "ProfileResponse{" +
+                "profileId=" + profileId +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 }

@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.security.crypto)
     implementation(libs.recyclerview)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

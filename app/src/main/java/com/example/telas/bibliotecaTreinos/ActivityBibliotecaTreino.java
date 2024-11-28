@@ -16,13 +16,18 @@ import com.example.telas.model.Workout;
 import com.example.telas.model.WorkoutExercise;
 import com.example.telas.model.Exercise;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import android.util.Log;
+
 public class ActivityBibliotecaTreino extends AppCompatActivity {
     private ImageButton btnAddExercicio;
+    private RecyclerView rvTreinos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class ActivityBibliotecaTreino extends AppCompatActivity {
             }
         });
 
-        RecyclerView rvTreinos = findViewById(R.id.rvTreinos);
+        rvTreinos = findViewById(R.id.rvTreinos);
         rvTreinos.setLayoutManager(new LinearLayoutManager(this));
 
         List<Workout> workouts = loadWorkouts();  // Carregar os treinos salvos
@@ -46,6 +51,15 @@ public class ActivityBibliotecaTreino extends AppCompatActivity {
         AdapterTraining adapter = new AdapterTraining(workouts);
         rvTreinos.setAdapter(adapter);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        List<Workout> workouts = loadWorkouts();  // Recarrega os treinos salvos
+        AdapterTraining adapter = new AdapterTraining(workouts);
+        rvTreinos.setAdapter(adapter);
+    }
+
 
     /**
      * Carrega os treinos salvos em SharedPreferences.
@@ -57,13 +71,29 @@ public class ActivityBibliotecaTreino extends AppCompatActivity {
         Map<String, ?> allEntries = sharedPreferences.getAll();
 
         Gson gson = new Gson();
+        Type workoutType = new TypeToken<Workout>(){}.getType();
+
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             String workoutJson = (String) entry.getValue();
-            Workout workout = gson.fromJson(workoutJson, Workout.class);
+            Workout workout = gson.fromJson(workoutJson, workoutType);
+
+            // Log do JSON do treino
+            Log.d("LoadWorkouts", "Workout JSON: " + workoutJson);
+
+            // Verificar cada exercício
+            for (WorkoutExercise we : workout.getExercises()) {
+                Exercise ex = we.getExercise();
+                if (ex != null) {
+                    Log.d("LoadWorkouts", "Exercise ID: " + ex.getExerciseId() + ", Nome: " + ex.getNome() + ", Músculos: " + ex.getMusculosAfetados());
+                } else {
+                    Log.e("LoadWorkouts", "Exercise is null in WorkoutExercise");
+                }
+            }
 
             workouts.add(workout);
         }
 
         return workouts;
     }
+
 }

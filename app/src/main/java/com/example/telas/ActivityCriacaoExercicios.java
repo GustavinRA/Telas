@@ -13,7 +13,9 @@ import com.example.telas.api.ApiClient;
 import com.example.telas.api.ExerciseService;
 import com.example.telas.model.Exercise;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import retrofit2.Call;
@@ -87,7 +89,7 @@ public class ActivityCriacaoExercicios extends AppCompatActivity {
             return;
         }
 
-        Set<String> selectedMuscles = new HashSet<>();
+        List<String> selectedMuscles = new ArrayList<>();
 
         if (checkBoxPeito.isChecked()) {
             selectedMuscles.add("Peito");

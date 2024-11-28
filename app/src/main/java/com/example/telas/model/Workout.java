@@ -7,6 +7,9 @@ public class Workout {
     private String nome;
     private List<WorkoutExercise> exercises;
 
+    public Workout (){
+    }
+
     public List<WorkoutExercise> getExercises() {
         return exercises;
     }

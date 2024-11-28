@@ -21,6 +21,7 @@ import com.example.telas.api.AuthManager;
 import com.example.telas.api.ProfileService;
 import com.example.telas.model.ProfileRequest;
 import com.example.telas.model.ProfileResponse;
+import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -97,6 +98,9 @@ public class DadosCadastrais extends AppCompatActivity {
             return;
         }
 
+        // Log do gênero selecionado
+        Log.d("DadosCadastrais", "Valor de genero selecionado: " + genero);
+
         float peso, altura;
         byte idade;
 
@@ -124,7 +128,13 @@ public class DadosCadastrais extends AppCompatActivity {
         }
 
         // Criar o objeto de requisição de perfil
-        ProfileRequest profileRequest = new ProfileRequest(idade, (short) altura, peso);
+        ProfileRequest profileRequest = new ProfileRequest(idade, (short) altura, peso, genero);
+        Log.d("DadosCadastrais", "ProfileRequest criado: " + profileRequest.toString());
+
+        // Serializar para JSON e verificar
+        Gson gson = new Gson();
+        String json = gson.toJson(profileRequest);
+        Log.d("DadosCadastrais", "JSON serializado do ProfileRequest: " + json);
 
         // Obter o token JWT do SharedPreferences
         String token = authManager.getAuthToken();
@@ -144,7 +154,7 @@ public class DadosCadastrais extends AppCompatActivity {
 
         // Fazer a chamada à API para registrar o perfil
         Call<ProfileResponse> call = profileService.createProfile("Bearer " + token, profileRequest);
-        Log.d("dadosCadastrais", "Enviando perfil: " + profileRequest.toString());
+        Log.d("dadosCadastrais", "Enviando perfil: " + json);
         call.enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {

@@ -1,17 +1,21 @@
 package com.example.telas.model;
 
+import java.util.List;
 import java.util.Set;
 
 public class Exercise {
     private Long exerciseId;
     private String nome;
-    private Set<String> musculosAfetados;
+    private List<String> musculosAfetados;
 
-    public Set<String> getMusculosAfetados() {
+    public Exercise() {
+    }
+
+    public List<String> getMusculosAfetados() {
         return musculosAfetados;
     }
 
-    public void setMusculosAfetados(Set<String> musculosAfetados) {
+    public void setMusculosAfetados(List<String> musculosAfetados) {
         this.musculosAfetados = musculosAfetados;
     }
 
